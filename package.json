@@ -1,0 +1,19 @@
+{
+  "name": "authservice",
+  "version": "1.0.0",
+  "description": "An authentication microservice as part of a larger E-commerce platform built on Docker",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lensonlovescode/AuthService"
+  },
+  "author": "Lenson, Shem, Caleb, Lincoln, Hillary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lensonlovescode/AuthService/issues"
+  },
+  "homepage": "https://github.com/lensonlovescode/AuthService#readme"
+}
