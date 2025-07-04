@@ -1,31 +1,27 @@
-//Direct Mongoose connection
+#!/usr/bin/env node
 
+const express = require('express');
 const mongoose = require('mongoose');
-const express = require('Express');
-const app = express();
-require('dotenv').config(); 
+const AuthRoutes = require('../src/routes/index');
+const cookieParser = require('cookie-parser')
 
-const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/opencart';
+const app = express()
 
-// Middleware
-app.use(express.json());
+app.use(express.static('public'));
+app.use(express.json())
+app.use(cookieParser())
 
+app.set('view engine', 'ejs');
 
+const dbURI = 'mongodb://127.0.0.1:27017/shopture-auth'; 
 
-// handling db connection formongo
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+mongoose.connect(dbURI, {
 })
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('MongoDB connection error:', err));
+  .then(() => {
+    console.log('Connected to local MongoDB');
+    app.listen(3000, () => console.log('Server running on port 3000'));
+  })
+  .catch(err => console.error('MongoDB connection error:', err));
 
-// Basic route shows if backend is live
-app.get('/', (req, res) => {
-  res.send('OpenCart Backend is lie!!!!');
-});
-
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-});
+  
+  app.use(AuthRoutes)

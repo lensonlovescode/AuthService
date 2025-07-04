@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 
 const express = require('express');
-const UserController = reqire('../controllers/UserController');
-
 const router = express.Router();
+const UserController = require('../controllers/UserController');
+const AuthController = require('../controllers/AuthController')
+const Authenticate = require('../controllers/Authenticate')
 
-router.post('/signup', UserController.SignMeUp)
-router.post('/login', UserController.LogMeIn)
+router.post('/signup', AuthController.SignMeUp)
+router.post('/login', AuthController.LogMeIn)
 router.post('/logout', UserController.LogMeOut)
 router.post('/forgotpassword', UserController.ForgotPassword)
+router.post('/authcheck', AuthController.Authenticate)
 
-module.export = router;
+
+module.exports = router;
