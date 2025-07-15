@@ -13,13 +13,13 @@ app.use(cookieParser())
 
 app.set('view engine', 'ejs');
 
-const dbURI = 'mongodb://127.0.0.1:27017/shopture-auth'; 
+const dbURI = 'mongodb://mongo:27017/shopture-auth'; 
 
 mongoose.connect(dbURI, {
 })
   .then(() => {
     console.log('Connected to local MongoDB');
-    app.listen(3000, () => console.log('Server running on port 3000'));
+    app.listen(3000, '0.0.0.0', () => console.log('Server running on port 3000'));
   })
   .catch(err => console.error('MongoDB connection error:', err));
 
