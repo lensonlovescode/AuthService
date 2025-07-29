@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/authservice
+          IMAGE_NAME=ghcr.io/${{ linnytv }}/authservice
           docker build . --file Dockerfile --tag $IMAGE_NAME:latest
 
       - name: Push Docker image
