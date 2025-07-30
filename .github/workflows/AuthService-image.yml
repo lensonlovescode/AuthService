@@ -8,7 +8,7 @@ on:
 
 permissions:
   contents: read
-  packages: write   # <-- Required for GHCR publishing
+  packages: write   # Required for GHCR publishing
 
 jobs:
   build-and-push:
@@ -23,11 +23,11 @@ jobs:
         with:
           registry: ghcr.io
           username: linnytv
-          password: ${{secrets.GHCR_PAT} }   
+          password: ${{ secrets.GHCR_PAT }}   
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/lensonlovescode/authservice  
+          IMAGE_NAME=ghcr.io/lensonlovescode/authservice   # ✅ Ensure this matches your target namespace
           docker build . --file Dockerfile --tag $IMAGE_NAME:latest
 
       - name: Push Docker image
