@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/user');
+const User = require('../models/User');
 const handleErrors = require('../utils/handleErrors');
 
 const maxAge = 3 * 24 * 60 * 60;
