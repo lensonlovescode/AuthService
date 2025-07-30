@@ -23,7 +23,7 @@ jobs:
         with:
           registry: ghcr.io
           username: linnytv
-          password: ${ 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 }   
+          password: ${{secrets.GHCR_PAT} }   
 
       - name: Build Docker image
         run: |
