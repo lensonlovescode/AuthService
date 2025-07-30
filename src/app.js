@@ -19,7 +19,7 @@ mongoose.connect(dbURI, {
 })
   .then(() => {
     console.log('Connected to local MongoDB');
-    app.listen(3000, '0.0.0.0', () => console.log('Server running on port 3000'));
+    app.listen(5000, '0.0.0.0', () => console.log('Server running on port 3000'));
   })
   .catch(err => console.error('MongoDB connection error:', err));
 
