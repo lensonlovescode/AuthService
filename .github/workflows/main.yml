@@ -62,7 +62,7 @@ jobs:
       - name: Run tests
         run: |
           docker run --rm \
-            --workdir /src \
+            --workdir / \
             --entrypoint "" \
             ${{ env.IMAGE_NAME }}-dev:latest \
             sh -c "if [ -f package-lock.json ]; then npm ci; else npm install; fi && npx vitest run --reporter=verbose"
