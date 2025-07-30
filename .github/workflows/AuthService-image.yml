@@ -27,7 +27,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/lensonlovescode/authservice   # ✅ Ensure this matches your target namespace
+          IMAGE_NAME=ghcr.io/lensonlovescode/authservice   
           docker build . --file Dockerfile --tag $IMAGE_NAME:latest
 
       - name: Push Docker image
